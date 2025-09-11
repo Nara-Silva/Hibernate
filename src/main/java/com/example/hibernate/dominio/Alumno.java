@@ -8,7 +8,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Alumno extends Persona {
+public class Alumno extends Persona2 {
 
     @OneToOne
     private Direccion direccion;

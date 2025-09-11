@@ -3,7 +3,7 @@ package com.example.hibernate.dominio;
 import javax.persistence.Entity;
 
 @Entity
-public class Profesor extends Persona {
+public class Profesor extends Persona2 {
 
     private Double salario;
     

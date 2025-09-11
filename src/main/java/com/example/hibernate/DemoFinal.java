@@ -4,7 +4,7 @@ import com.example.hibernate.dominio.Alumno;
 import com.example.hibernate.dominio.Calificacion;
 import com.example.hibernate.dominio.Curso;
 import com.example.hibernate.dominio.Examen;
-import com.example.hibernate.dominio.Persona;
+import com.example.hibernate.dominio.Persona2;
 import com.example.hibernate.dominio.Profesor;
 import com.example.hibernate.utils.BDUtils;
 import java.time.LocalDateTime;
@@ -55,17 +55,17 @@ public class DemoFinal {
         em.persist(examenDeMarcos);
 
         //JPQL Query
-        List<Persona> personas = em
+        List<Persona2> persona2s = em
                 // equivalente a: select * from persona where persona.nombre = 'Julian'
-                .createQuery("select p from Persona p where p.nombre = ?1", Persona.class) //ojo, query no tipada
+                .createQuery("select p from Persona2 p where p.nombre = ?1", Persona2.class) //ojo, query no tipada
                 .setParameter(1, "Julian")
                 .getResultList();
 
-        System.out.println(personas);
+        System.out.println(persona2s);
 
         //Delete
-        for (Persona persona : personas) {
-            em.remove(persona);
+        for (Persona2 persona2 : persona2s) {
+            em.remove(persona2);
         }
 
         BDUtils.commit(em);
