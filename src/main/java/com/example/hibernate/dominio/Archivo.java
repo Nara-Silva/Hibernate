@@ -11,11 +11,16 @@ public class Archivo {
     private Long id;
 
     private String nombre;
-    private String tipo;
 
-    @ManyToOne
-    @JoinColumn(name = "id_postulacion") // FK a Postulacion
-    private Postulacion postulacion;
+    private Double tamanio;
+
+    private String formato;
+
+    private String ruta;
+
+    //@ManyToOne
+    //@JoinColumn(name = "id_postulacion") // FK a Postulacion
+    //private Postulacion postulacion;
 
     // Getters y setters
     public Long getId() {
@@ -34,19 +39,35 @@ public class Archivo {
         this.nombre = nombre;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Double getTamanio() {
+        return tamanio;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTamanio(Double tamanio) {
+        this.tamanio = tamanio;
     }
 
-    public Postulacion getPostulacion() {
+    public String getFormato() {
+        return formato;
+    }
+
+    public void setFormato(String formato) {
+        this.formato = formato;
+    }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
+    /*public Postulacion getPostulacion() {
         return postulacion;
     }
 
-    public void setPostulacion(Postulacion postulacion) {
+    //public void setPostulacion(Postulacion postulacion) {
         this.postulacion = postulacion;
     }*/
 
