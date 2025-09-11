@@ -48,14 +48,16 @@ public class Archivo {
 
     public void setPostulacion(Postulacion postulacion) {
         this.postulacion = postulacion;
-    }
+    }*/
 
     @Override
     public String toString() {
         return "Archivo{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", tipo='" + tipo + '\'' +
+                ", tamanio=" + tamanio +
+                ", formato='" + formato + '\'' +
+                ", ruta='" + ruta + '\'' +
                 '}';
     }
 

@@ -1,7 +1,8 @@
 package com.example.hibernate.dominio;
 import javax.persistence.*;
 
-@Entity
+@Entity @Table(name = "usuario")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 
     @Id
@@ -11,11 +12,11 @@ public class Usuario {
     @Enumerated(EnumType.STRING) //Opcional. Por default, lo persiste como int
     private Rol rol;
 
-    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    /*@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Persona persona;
 
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private Agencia agencia;
+    private Agencia agencia;*/
 
     // Getters y setters
     public Long getId() {
@@ -32,7 +33,7 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public Persona getPersona() {
+   /* public Persona getPersona() {
         return persona;
     }
     public void setPersona(Persona persona) {
@@ -50,7 +51,7 @@ public class Usuario {
         if (agencia != null) {
             agencia.setUsuario(this);
         }
-    }
+    }*/
 
     @Override
     public String toString() {

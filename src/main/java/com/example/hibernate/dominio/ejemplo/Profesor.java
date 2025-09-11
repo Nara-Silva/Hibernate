@@ -1,4 +1,4 @@
-package com.example.hibernate.dominio;
+package com.example.hibernate.dominio.ejemplo;
 
 import javax.persistence.Entity;
 

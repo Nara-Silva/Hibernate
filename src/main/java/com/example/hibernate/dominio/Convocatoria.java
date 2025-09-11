@@ -19,7 +19,14 @@ public /*abstract*/ class Convocatoria {
     private Rango rangoEdad;
     */
 
+    // Relación bidireccional
+    @OneToMany(mappedBy = "convocatoria")
+    private List<Postulacion> postulaciones;
+
+
+    @Column
     private Integer rangoDesde;
+    @Column
     private Integer rangoHasta;
 
     @Enumerated(EnumType.STRING) //Opcional. Por default, lo persiste como int

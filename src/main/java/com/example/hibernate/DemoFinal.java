@@ -1,11 +1,11 @@
 package com.example.hibernate;
 
-import com.example.hibernate.dominio.Alumno;
-import com.example.hibernate.dominio.Calificacion;
-import com.example.hibernate.dominio.Curso;
-import com.example.hibernate.dominio.Examen;
-import com.example.hibernate.dominio.Persona2;
-import com.example.hibernate.dominio.Profesor;
+import com.example.hibernate.dominio.ejemplo.Alumno;
+import com.example.hibernate.dominio.ejemplo.Calificacion;
+import com.example.hibernate.dominio.ejemplo.Curso;
+import com.example.hibernate.dominio.ejemplo.Examen;
+import com.example.hibernate.dominio.ejemplo.Persona2;
+import com.example.hibernate.dominio.ejemplo.Profesor;
 import com.example.hibernate.utils.BDUtils;
 import java.time.LocalDateTime;
 import static java.util.Arrays.asList;

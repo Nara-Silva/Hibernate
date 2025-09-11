@@ -2,17 +2,11 @@ package com.example.hibernate.dominio;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "agencia")
-public class Agencia {
+@Entity @Table(name = "agencia")
+public class Agencia extends Usuario {
 
-    @Id
-    private Long idUsuario; // mismo PK que Usuario
-
-    @OneToOne
-    @MapsId // indica que comparte el id con Usuario
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    @Id @GeneratedValue
+    private Long id;
 
     @Column(length = 50, nullable = false)
     private String nombre;
@@ -21,6 +15,7 @@ public class Agencia {
     private LocalDate fechaCreacion;
 
     // Getters y setters
+    /*
     public Long getIdUsuario() {
         return idUsuario;
     }
@@ -35,7 +30,7 @@ public class Agencia {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
+    }*/
 
     public String getNombre() {
         return nombre;

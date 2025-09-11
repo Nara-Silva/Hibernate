@@ -1,4 +1,4 @@
-package com.example.hibernate.dominio;
+package com.example.hibernate.dominio.ejemplo;
 
 import java.time.LocalDateTime;
 import javax.persistence.Entity;

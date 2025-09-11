@@ -23,7 +23,7 @@ public class Postulacion {
     private EstadoPostulacion estado;
 
     @ManyToOne
-    @JoinColumn(name = "id_archivo_cv", nullable = false)
+    @JoinColumn(name = "id_archivo_cv", referencedColumnName = "id", nullable = false)
     private Archivo archivoCV;
 
     @Column(length = 250, nullable = false)

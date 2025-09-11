@@ -1,6 +1,6 @@
 package com.example.hibernate;
 
-import com.example.hibernate.dominio.Alumno;
+import com.example.hibernate.dominio.ejemplo.Alumno;
 import com.example.hibernate.utils.BDUtils;
 import javax.persistence.EntityManager;
 

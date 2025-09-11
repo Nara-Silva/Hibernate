@@ -3,41 +3,36 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Persona {
+public class Persona extends Usuario {
 
-    @Id
-    private Long idUsuario;
-
-    @OneToOne
-    @MapsId
-    private Usuario usuario;
+    @Id @GeneratedValue
+    private Long id;
 
     @Enumerated(EnumType.STRING) //Opcional. Por default, lo persiste como int
     private GeneroPersona genero;
-
+    @Column
     private String nombre;
+    @Column
     private String apellido;
     @Temporal(TemporalType.DATE)
     private Date fechadDeNacimiento;
+    @Column
     private String telefono;
+    @Column
     private String direccion;
+    @Column
     private String email;
+    @Column
     private Date fechaDeNacimiento;
 
     // Getters y setters
-    public Long getIdUsuario() {
-        return idUsuario;
+    public Long getId() {
+        return id;
     }
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+    public void setId(Long id) {
+        this.id = id;
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+
 
     public GeneroPersona getGenero() {
         return genero;
