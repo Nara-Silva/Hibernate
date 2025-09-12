@@ -3,37 +3,32 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "id")
 public class Persona extends Usuario {
-
-    @Id @GeneratedValue
-    private Long id;
 
     @Enumerated(EnumType.STRING) //Opcional. Por default, lo persiste como int
     private GeneroPersona genero;
+
     @Column
     private String nombre;
+
     @Column
     private String apellido;
+
     @Temporal(TemporalType.DATE)
-    private Date fechadDeNacimiento;
-    @Column
-    private String telefono;
-    @Column
-    private String direccion;
-    @Column
-    private String email;
-    @Column
+    @Column(name = "fechaDeNacimiento")
     private Date fechaDeNacimiento;
 
+    @Column
+    private String telefono;
+
+    @Column
+    private String direccion;
+
+    @Column
+    private String email;
+
     // Getters y setters
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-
-    }
-
     public GeneroPersona getGenero() {
         return genero;
     }
@@ -85,6 +80,6 @@ public class Persona extends Usuario {
 
     @Override
     public String toString() {
-        return "Persona{" + "idUsuario=" + id + ", nombre='" + nombre + '\'' + ", apellido='" + apellido + '\'' + '}';
+        return "Persona{idUsuario=" + getId() + ", nombre='" + nombre + "', apellido='" + apellido + "'}";
     } //idUsuario  decia esto pero me lo marca como error, es id?? dejé ese y lo toma lo vemos dsp si no
 }

@@ -17,7 +17,7 @@ public class Postulacion {
 
     // Relacion muchos a uno con Convocatoria
     @ManyToOne
-    @JoinColumn(name = "id_convocatoria", referencedColumnName = "id")
+    @JoinColumn(name = "id_convocatoria", referencedColumnName = "id_convocatoria", nullable = false)
     private Convocatoria convocatoria;
 
     @Enumerated(EnumType.STRING) //Opcional. Por default, lo persiste como int

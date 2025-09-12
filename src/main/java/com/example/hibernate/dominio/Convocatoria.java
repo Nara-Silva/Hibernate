@@ -14,7 +14,7 @@ public /*abstract*/ class Convocatoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_convocatoria")
-    private Integer id;
+    private Long id;
 
     /*@ManyToOne
     @JoinColumn(name = "id_rango", nullable = false)
@@ -25,12 +25,9 @@ public /*abstract*/ class Convocatoria {
     @OneToMany(mappedBy = "convocatoria")
     private List<Postulacion> postulaciones;
 
-
     @Column
     private Integer rangoDesde;
 
-
-    
     @Column
     private Integer rangoHasta;
 
@@ -67,11 +64,11 @@ public /*abstract*/ class Convocatoria {
     private Integer tiempoDisponible;
 
     // ===== Getters y Setters =====
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -164,5 +161,4 @@ public /*abstract*/ class Convocatoria {
     }
 
 }
-
 

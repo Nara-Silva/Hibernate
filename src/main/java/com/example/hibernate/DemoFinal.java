@@ -1,24 +1,14 @@
 package com.example.hibernate;
 
-import com.example.hibernate.dominio.Agencia;
-import com.example.hibernate.dominio.ConvocatoriaPublicidad;
-import com.example.hibernate.dominio.GeneroPersona;
-import com.example.hibernate.dominio.Persona;
-import com.example.hibernate.dominio.ejemplo.Alumno;
-import com.example.hibernate.dominio.ejemplo.Calificacion;
-import com.example.hibernate.dominio.ejemplo.Curso;
-import com.example.hibernate.dominio.ejemplo.Examen;
-import com.example.hibernate.dominio.ejemplo.Persona2;
-import com.example.hibernate.dominio.ejemplo.Profesor;
+import com.example.hibernate.dominio.*;
 import com.example.hibernate.utils.BDUtils;
 
+import javax.persistence.EntityManager;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import static java.util.Arrays.asList;
-
 import java.util.Date;
 import java.util.List;
-import javax.persistence.EntityManager;
+
+import static com.example.hibernate.dominio.Rol.CONVOCADOR;
 
 public class DemoFinal {
 
@@ -32,7 +22,6 @@ public class DemoFinal {
         agencia.setFechaCreacion(LocalDate.now());
         em.persist(agencia);
 
-        // Crear y persistir Persona
         Persona persona = new Persona();
         persona.setNombre("Candela");
         persona.setApellido("Nieva");
@@ -41,41 +30,64 @@ public class DemoFinal {
         persona.setFechaDeNacimiento(new Date());
         em.persist(persona);
 
-        ConvocatoriaPublicidad convocatoriaPub = new ConvocatoriaPublicidad();
-        convocatoriaPub.setNombreProductoOservicio("Nuevo Shampoo");
-        em.persist(convocatoriaPub);
+        Usuario creador = new Usuario();
+        creador.setRol(CONVOCADOR);
+        persona.setRol(Rol.POSTULANTE);
+        em.persist(creador);
 
-        //Update
-        persona.setNombre("Candela Danett"); //Entidad administrada  -> detecta cambios
+        //Localización
+        Localizacion loc = new Localizacion();
+        loc.setPais("Argentina");
+        loc.setProvincia("Buenos Aires");
+        loc.setMunicipio("La Matanza");
+        em.persist(loc);
+
+        ConvocatoriaPublicidad convPub = new ConvocatoriaPublicidad();
+        convPub.setNombreProductoOservicio("Nuevo Shampoo");
+
+        // valores a convocatoria:
+        convPub.setGeneroBuscado(GeneroBuscado.FEMENINO);
+        convPub.setTipoRemuneracion(TipoRemuneracion.PAGO_FIJO);
+        convPub.setCreador(creador);
+        convPub.setLocalizacion(loc);
+        convPub.setFechaPublicacion(new Date());
+        convPub.setActiva(true);
+        convPub.setRequisitos("Experiencia en cámara");
+        convPub.setTiempoDisponible(20);
+        convPub.setRangoDesde(18);
+        convPub.setRangoHasta(35);
+
+        em.persist(convPub);
+
+        // Update (entidad administrada -> detecta cambios)
+        persona.setNombre("Candela Danett");
         System.out.println("ID Candela: " + persona.getId());
 
-
-        //JPQL Query
-        // Consulta JPQL para Agencia por nombre
+        // JPQL Query - Agencia por nombre
         List<Agencia> agencias = em
                 .createQuery("select a from Agencia a where a.nombre = :nombre", Agencia.class)
                 .setParameter("nombre", "Agencia Creativa")
                 .getResultList();
         System.out.println("Agencias: " + agencias);
 
+        // JPQL Query - ConvocatoriaPublicidad por producto/servicio
         List<ConvocatoriaPublicidad> convocatorias = em
                 .createQuery("select c from ConvocatoriaPublicidad c where c.nombreProductoOservicio = :nombre", ConvocatoriaPublicidad.class)
                 .setParameter("nombre", "Nuevo Shampoo")
                 .getResultList();
         System.out.println("Convocatorias: " + convocatorias);
 
+        // Delete de agencias con ese nombre
         List<Agencia> agenciasAEliminar = em
                 .createQuery("select a from Agencia a where a.nombre = :nombre", Agencia.class)
                 .setParameter("nombre", "Agencia Creativa")
                 .getResultList();
 
-        //Delete
-        for (Agencia agenciaeliminar : agenciasAEliminar) {
-            em.remove(agenciaeliminar);
+        for (Agencia agenciaEliminar : agenciasAEliminar) {
+            em.remove(agenciaEliminar);
         }
 
         BDUtils.commit(em);
         em.close();
     }
-
 }
