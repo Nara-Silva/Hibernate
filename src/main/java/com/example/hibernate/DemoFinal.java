@@ -46,7 +46,7 @@ public class DemoFinal {
         em.persist(convocatoriaPub);
 
         //Update
-        persona.setNombre("Candela Danett"); //Entidad administrada -> detecta cambios
+        persona.setNombre("Candela Danett"); //Entidad administrada  -> detecta cambios
         System.out.println("ID Candela: " + persona.getId());
 
 
