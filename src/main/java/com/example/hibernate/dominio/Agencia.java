@@ -5,8 +5,9 @@ import java.time.LocalDate;
 @Entity @Table(name = "agencia")
 public class Agencia extends Usuario {
 
-    @Id @GeneratedValue
-    private Long id;
+    // Id GeneratedValue copilot dice que como usuario ya tiene una clave primaria en usuario
+    //no hace falta tener otra
+    //private Long id;
 
     @Column(length = 50, nullable = false)
     private String nombre;

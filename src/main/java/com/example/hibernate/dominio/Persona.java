@@ -32,7 +32,7 @@ public class Persona extends Usuario {
     public void setId(Long id) {
         this.id = id;
 
-
+    }
 
     public GeneroPersona getGenero() {
         return genero;
@@ -85,6 +85,6 @@ public class Persona extends Usuario {
 
     @Override
     public String toString() {
-        return "Persona{" + "idUsuario=" + idUsuario + ", nombre='" + nombre + '\'' + ", apellido='" + apellido + '\'' + '}';
-    }
+        return "Persona{" + "idUsuario=" + id + ", nombre='" + nombre + '\'' + ", apellido='" + apellido + '\'' + '}';
+    } //idUsuario  decia esto pero me lo marca como error, es id?? dejé ese y lo toma lo vemos dsp si no
 }

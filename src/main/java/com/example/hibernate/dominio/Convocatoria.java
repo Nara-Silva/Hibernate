@@ -28,6 +28,9 @@ public /*abstract*/ class Convocatoria {
 
     @Column
     private Integer rangoDesde;
+
+
+    
     @Column
     private Integer rangoHasta;
 
@@ -44,7 +47,7 @@ public /*abstract*/ class Convocatoria {
     private Localizacion localizacion;
 
     @Enumerated(EnumType.STRING) //Opcional. Por default, lo persiste como int
-    @Column (name="generoBuscado",nullable = false)
+    @Column (name="tipo_de_REMUNERACION",nullable = false)
     private TipoRemuneracion tipoRemuneracion;
 
     @Temporal(TemporalType.DATE)
