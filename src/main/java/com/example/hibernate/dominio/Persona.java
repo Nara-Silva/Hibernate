@@ -3,7 +3,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "id_usuario")
 public class Persona extends Usuario {
 
     @Enumerated(EnumType.STRING) //Opcional. Por default, lo persiste como int

@@ -7,6 +7,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Long id;
 
     @Enumerated(EnumType.STRING) //Opcional. Por default, lo persiste como int

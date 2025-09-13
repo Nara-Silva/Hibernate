@@ -30,10 +30,10 @@ public class DemoFinal {
         persona.setFechaDeNacimiento(new Date());
         em.persist(persona);
 
-        Usuario creador = new Usuario();
+        /*Usuario creador = new Usuario();
         creador.setRol(CONVOCADOR);
         persona.setRol(Rol.POSTULANTE);
-        em.persist(creador);
+        em.persist(creador);*/
 
         //Localización
         Localizacion loc = new Localizacion();
@@ -48,7 +48,7 @@ public class DemoFinal {
         // valores a convocatoria:
         convPub.setGeneroBuscado(GeneroBuscado.FEMENINO);
         convPub.setTipoRemuneracion(TipoRemuneracion.PAGO_FIJO);
-        convPub.setCreador(creador);
+        convPub.setCreador(agencia);
         convPub.setLocalizacion(loc);
         convPub.setFechaPublicacion(new Date());
         convPub.setActiva(true);
@@ -78,14 +78,14 @@ public class DemoFinal {
         System.out.println("Convocatorias: " + convocatorias);
 
         // Delete de agencias con ese nombre
-        List<Agencia> agenciasAEliminar = em
+        /*List<Agencia> agenciasAEliminar = em
                 .createQuery("select a from Agencia a where a.nombre = :nombre", Agencia.class)
                 .setParameter("nombre", "Agencia Creativa")
                 .getResultList();
 
         for (Agencia agenciaEliminar : agenciasAEliminar) {
             em.remove(agenciaEliminar);
-        }
+        }*/
 
         BDUtils.commit(em);
         em.close();

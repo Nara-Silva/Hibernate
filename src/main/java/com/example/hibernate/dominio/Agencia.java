@@ -3,6 +3,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity @Table(name = "agencia")
+@PrimaryKeyJoinColumn(name = "id_usuario")
 public class Agencia extends Usuario {
 
     // Id GeneratedValue copilot dice que como usuario ya tiene una clave primaria en usuario
