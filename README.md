@@ -13,4 +13,4 @@ Demo de ORM con Java Hibernate a una base de datos MySql
 ## Pasos
 1) Crear la base de datos en MySQL Workbench --> CREATE DATEBASE utndds
 2) Ejecutar DemoFinal.java
-3) Verificar si las tablas junto a los datos fueron insertados correctamente en la base de datos
+3) Verificar si las tablas junto a los datos fueron insertados correctamente en la base de datos.
